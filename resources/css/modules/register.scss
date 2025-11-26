@@ -1,0 +1,118 @@
+.register__wrapper {
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.register-card {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.register-card .card-body {
+    padding: 40px 35px;
+}
+
+.register-title {
+    color: var(--color-text-dark, #4b4c4c);
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.register-title i {
+    color: var(--color-green, #39cc38);
+    margin-right: 10px;
+}
+
+.register__wrapper .input-group-custom {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.register__wrapper .input-group-custom .form-label {
+    font-weight: 500;
+    color: var(--color-text-gray, #595959);
+    margin-bottom: 10px;
+}
+
+.register__wrapper .input-group-custom .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 44px;
+    color: #999;
+    font-size: 18px;
+}
+
+.register__wrapper .input-group-custom .form-control {
+    padding-left: 45px;
+    height: 50px;
+    border-radius: 4px;
+    border: 2px solid rgba(75, 76, 76, 0.49);
+    transition: all var(--transition-default, 0.3s) ease;
+}
+
+.register__wrapper .input-group-custom .form-control:focus {
+    outline: none;
+    border-color: var(--color-green, #39cc38);
+    box-shadow: 0 0 10px 1px rgba(57, 204, 56, 0.7);
+}
+
+.register-footer {
+    margin-top: 35px;
+}
+
+.already-registered {
+    color: var(--color-green, #39cc38);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color var(--transition-default, 0.3s) ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.already-registered:hover {
+    color: #2db82c;
+    text-decoration: underline;
+}
+
+.btn-register {
+    width: 100%;
+    padding: 14px 40px;
+    background-color: var(--color-green, #39cc38);
+    border: none;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-white, #ffffff);
+    letter-spacing: 1px;
+    transition: background-color var(--transition-default, 0.3s), transform var(--transition-default, 0.3s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-register:hover {
+    background-color: #2db82c;
+    transform: translateY(-2px);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .register-card .card-body {
+        padding: 30px 25px;
+    }
+
+    .register-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .register__wrapper .input-group-custom {
+        margin-bottom: 20px;
+    }
+}

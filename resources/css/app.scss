@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap/scss/bootstrap";
+
+@import "main_styles.css";
+@import "./modules/login";
+@import "./modules/register";
