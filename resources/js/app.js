@@ -1,7 +1,13 @@
 import './bootstrap';
 import * as bootstrap from 'bootstrap';
-import Alpine from 'alpinejs';
 
-window.Alpine = Alpine;
+// Import modules
+import { initPhoneMasks } from './modules/phoneMask';
 
-Alpine.start();
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize phone masks
+    initPhoneMasks();
+});
+
