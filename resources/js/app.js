@@ -1,5 +1,6 @@
 import './bootstrap';
 import * as bootstrap from 'bootstrap';
+import './modules/burger.js'
 
 // Import modules
 import { initPhoneMasks } from './modules/phoneMask';

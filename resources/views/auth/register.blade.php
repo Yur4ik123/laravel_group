@@ -1,66 +1,160 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.app')
+@section('content')
+    <div class="register__wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card register-card">
+                        <div class="card-body">
+                            <h3 class="register-title text-center">
+                                <i class="bi bi-person-plus"></i>
+                                {{ __('auth.register') }}
+                            </h3>
+                            <form method="POST" action="{{ route('register') }}" class="!w-full">
+                                @csrf
+                                <div class="row">
+                                    <!-- Name -->
+                                    <div class="col-md-6">
+                                        <div class="input-group-custom">
+                                            <label for="name" class="form-label">{{ __('auth.name') }}</label>
+                                            <i class="bi bi-person input-icon"></i>
+                                            <input id="name"
+                                                   type="text"
+                                                   class="form-control @error('name') is-invalid @enderror"
+                                                   name="name"
+                                                   value="{{ old('name') }}"
+                                                   placeholder="John"
+                                                   required
+                                                   autofocus
+                                                   autocomplete="name">
+                                            @error('name')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    <!-- Surname -->
+                                    <div class="col-md-6">
+                                        <div class="input-group-custom">
+                                            <label for="surname" class="form-label">{{ __('auth.surname') }}</label>
+                                            <i class="bi bi-person input-icon"></i>
+                                            <input id="surname"
+                                                   type="text"
+                                                   class="form-control @error('surname') is-invalid @enderror"
+                                                   name="surname"
+                                                   value="{{ old('surname') }}"
+                                                   placeholder="Doe"
+                                                   required
+                                                   autocomplete="family-name">
+                                            @error('surname')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Email Address -->
+                                <div class="input-group-custom">
+                                    <label for="email" class="form-label">{{ __('auth.email') }}</label>
+                                    <i class="bi bi-envelope input-icon"></i>
+                                    <input id="email"
+                                           type="email"
+                                           class="form-control @error('email') is-invalid @enderror"
+                                           name="email"
+                                           value="{{ old('email') }}"
+                                           placeholder="your@email.com"
+                                           required
+                                           autocomplete="username">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="input-group-custom">
+                                    <label for="phone" class="form-label">{{ __('auth.phone') }}</label>
+                                    <i class="bi bi-telephone input-icon"></i>
+                                    <input id="phone"
+                                           type="tel"
+                                           class="form-control @error('phone') is-invalid @enderror"
+                                           name="phone"
+                                           value="{{ old('phone') }}"
+                                           placeholder="+38 (___) ___-__-__"
+                                           required
+                                           autocomplete="tel">
+                                    @error('phone')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="row">
+                                    <!-- Password -->
+                                    <div class="col-md-6">
+                                        <div class="input-group-custom">
+                                            <label for="password" class="form-label">{{ __('auth.password') }}</label>
+                                            <i class="bi bi-lock input-icon"></i>
+                                            <input id="password"
+                                                   type="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   name="password"
+                                                   placeholder="••••••••"
+                                                   required
+                                                   autocomplete="new-password">
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Confirm Password -->
+                                    <div class="col-md-6">
+                                        <div class="input-group-custom">
+                                            <label for="password_confirmation" class="form-label">{{ __('auth.confirm_password') }}</label>
+                                            <i class="bi bi-lock-fill input-icon"></i>
+                                            <input id="password_confirmation"
+                                                   type="password"
+                                                   class="form-control @error('password_confirmation') is-invalid @enderror"
+                                                   name="password_confirmation"
+                                                   placeholder="••••••••"
+                                                   required
+                                                   autocomplete="new-password">
+                                            @error('password_confirmation')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="register-footer">
+                                    <button type="submit" class="btn btn-primary btn-register w-100">
+                                        {{ __('auth.register') }}
+                                        <i class="bi bi-arrow-right ms-2"></i>
+                                    </button>
+
+                                    <div class="text-center mt-3">
+                                        <a class="already-registered" href="{{ route('login') }}">
+                                            <i class="bi bi-box-arrow-in-right me-1"></i>
+                                            {{ __('auth.already_registered') }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Surname -->
-        <div class="mt-4">
-            <x-input-label for="surname" :value="__('Surname')" />
-            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autocomplete="family-name" />
-            <x-input-error :messages="$errors->get('surname')" class="mt-2" />
-        </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Phone -->
-        <div class="mt-4">
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" placeholder="+38 (___) ___-__-__" required autocomplete="tel" />
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

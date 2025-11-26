@@ -4,3 +4,7 @@
 
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "bootstrap/scss/bootstrap";
+
+@import "main_styles.css";
+@import "./modules/login";
+@import "./modules/register";

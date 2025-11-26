@@ -6,6 +6,10 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
             </div>
         </div>
     </div>

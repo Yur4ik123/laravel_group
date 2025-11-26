@@ -12,6 +12,13 @@ export default defineConfig({
     resolve: {
         alias: {
             '~bootstrap-icons': resolve(__dirname, 'node_modules/bootstrap-icons'),
+            '~img': resolve(__dirname, 'public/images'),
         }
+    },
+    build: {
+        sourcemap: true,
+    },
+    css: {
+        devSourcemap: true,
     }
 });
