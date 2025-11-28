@@ -7,19 +7,14 @@ use App\Models\Status;
 
 class StatusesSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        Status::factory()->create([
-            'slug' => 'pending',
-            'name' => 'В ожидании', // или через перевод
-        ]);
-        Status::factory()->create([
-            'slug' => 'confirmed',
-            'name' => 'Подтверждено',
-        ]);
-        Status::factory()->create([
-            'slug' => 'canceled',
-            'name' => 'Отменено',
-        ]);
+        // Создаем 5 статусов с переводами
+        Status::factory()->count(5)->create()->each(function ($status) {
+            // добавляем перевод для каждой записи
+            $status->translateOrNew('en')->name = 'Status ' . $status->id;
+            $status->translateOrNew('uk')->name = 'Статус ' . $status->id;
+            $status->save();
+        });
     }
 }
