@@ -22,5 +22,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
         Route::resource('statuses', StatusController::class);
     });
+
+    // Админка: Маршруты
+    Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function() {
+        Route::resource('statuses', StatusController::class);
+    });
 });
 require __DIR__ . '/auth.php';
