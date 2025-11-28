@@ -18,11 +18,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
-    // Админка: Статусы
-    Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-        Route::resource('statuses', StatusController::class);
-    });
-
     // Админка: Маршруты
     Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function() {
         Route::resource('statuses', StatusController::class);
