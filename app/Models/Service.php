@@ -2,13 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 
 class Service extends Model
 {
-    use Translatable;
+    use HasFactory, Translatable;
 
     public $translatedAttributes = ['name', 'description'];
-    protected $fillable = ['slug', 'category', 'price', 'duration_minutes', 'active'];
+
+    protected $fillable = [
+        'slug',
+        'category',
+        'price',
+        'duration_minutes',
+        'active'
+    ];
 }
