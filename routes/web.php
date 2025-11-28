@@ -17,10 +17,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
-
-    // Админка: Маршруты
-    Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function() {
-        Route::resource('statuses', StatusController::class);
-    });
 });
 require __DIR__ . '/auth.php';
