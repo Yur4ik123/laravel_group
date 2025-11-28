@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Service_translation extends Model
+
+class ServiceTranslation extends Model
 {
-    //
+    public $timestamps = false;
 }
