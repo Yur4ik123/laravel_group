@@ -1,0 +1,191 @@
+/* Custom styles for services page */
+
+/* Service info block */
+.service-image-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.service-title {
+    font-weight: 700;
+    color: var(--color-text-dark, #4b4c4c);
+}
+
+.service-description {
+    line-height: 1.7;
+    color: var(--color-text-gray, #595959);
+}
+
+.service-meta .meta-item {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    transition: all var(--transition-default, 0.3s) ease;
+}
+
+.service-meta .meta-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-meta .meta-item i {
+    color: var(--color-green, #39cc38);
+}
+
+/* Timeslots section */
+.timeslots-section {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-weight: 600;
+    color: var(--color-text-dark, #4b4c4c);
+}
+
+.section-title i {
+    color: var(--color-green, #39cc38);
+}
+
+/* Date buttons */
+.btn-date {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 70px;
+    transition: all var(--transition-default, 0.3s) ease;
+    border: 2px solid rgba(75, 76, 76, 0.3);
+    color: var(--color-text-gray, #595959);
+}
+
+.btn-date .date-day {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-date .date-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.btn-date .date-month {
+    font-size: 0.75rem;
+}
+
+.btn-date:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-green, #39cc38);
+    color: var(--color-green, #39cc38);
+}
+
+.btn-date.active {
+    background-color: var(--color-green, #39cc38);
+    color: var(--color-white, #ffffff);
+    border-color: var(--color-green, #39cc38);
+}
+
+/* Timeslot buttons */
+.timeslot-btn {
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all var(--transition-default, 0.3s) ease;
+    border: 2px solid rgba(75, 76, 76, 0.3);
+    color: var(--color-text-gray, #595959);
+    background-color: var(--color-white, #ffffff);
+}
+
+.timeslot-btn:hover:not(:disabled) {
+    background-color: var(--color-green, #39cc38);
+    color: var(--color-white, #ffffff);
+    border-color: var(--color-green, #39cc38);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(57, 204, 56, 0.3);
+}
+
+.timeslot-btn.active {
+    background-color: var(--color-green, #39cc38);
+    color: var(--color-white, #ffffff);
+    border-color: var(--color-green, #39cc38);
+}
+
+.timeslot-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Booking summary */
+.booking-summary .alert {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.booking-summary .btn-primary {
+    background-color: var(--color-green, #39cc38);
+    border-color: var(--color-green, #39cc38);
+    transition: all var(--transition-default, 0.3s) ease;
+}
+
+.booking-summary .btn-primary:hover {
+    background-color: #2db82c;
+    border-color: #2db82c;
+    transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .timeslots-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .service-title {
+        font-size: 1.75rem;
+    }
+
+    .date-selector {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .date-selector .row {
+        flex-wrap: nowrap;
+    }
+
+    .btn-date {
+        min-width: 60px;
+    }
+
+    .booking-summary .alert {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .booking-summary .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .timeslot-btn {
+        font-size: 0.875rem;
+        padding: 0.625rem 0.5rem;
+    }
+
+    .service-meta .meta-item {
+        padding: 0.75rem;
+    }
+
+    .service-meta .meta-item i {
+        font-size: 1.25rem !important;
+    }
+}
