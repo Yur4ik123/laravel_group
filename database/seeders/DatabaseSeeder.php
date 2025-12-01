@@ -40,5 +40,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategorySeeder::class);
 
+
+        // Call StatusesSeeder
+        $this->call([
+            StatusesSeeder::class,
+        ]);
     }
 }

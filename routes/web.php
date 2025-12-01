@@ -21,4 +21,3 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::view('/service', 'services.index')->name('service.index');;
 });
 require __DIR__ . '/auth.php';
-
