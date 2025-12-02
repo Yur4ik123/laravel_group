@@ -52,6 +52,16 @@ class CategoryResource extends Resource
         }
 
         return $schema->schema([
+            Forms\Components\FileUpload::make('image')
+                ->label('Картинка категории')
+                ->image()
+                ->directory('categories')      // файлы будут лежать в storage/app/public/categories
+                ->disk('public')
+                ->imagePreviewHeight('150')
+                ->downloadable(false)
+                ->openable()                   // можно открыть в новом окне
+                ->nullable(),
+
             Forms\Components\TextInput::make('slug')
                 ->label('Slug')
                 ->required()
@@ -67,6 +77,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')->label('Картинка')->disk('public')->height(40)->width(40),
                 Tables\Columns\TextColumn::make('id')->label('ID')->sortable(),
                 Tables\Columns\TextColumn::make('name')->label('Название')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('slug')->label('Slug')->sortable()->searchable(),
