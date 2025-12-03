@@ -1,29 +1,35 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+@section('content')
+    <div class="container">
+        <h2>Личный кабинет</h2>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+        <form method="POST" action="{{ route('profile.update') }}">
+            @csrf
+            @method('PATCH')
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
+            <label>Имя</label>
+            <input type="text" name="name" value="{{ old('name', $user->name) }}" required>
+
+            <label>Фамилия</label>
+            <input type="text" name="surname" value="{{ old('surname', $user->surname) }}" required>
+
+            <label>Email</label>
+            <input type="email" name="email" value="{{ old('email', $user->email) }}" required>
+
+            <label>Телефон</label>
+            <input type="text" name="phone"
+                   id="phone"
+                   value="{{ old('phone', $user->phone) }}"
+                   placeholder="+38 (0__) ___-__-__"
+                   required>
+
+            <button type="submit">Сохранить</button>
+        </form>
+
+        <hr>
+
+        <a href="{{ route('profile.password') }}">Сменить пароль</a> |
+        <a href="{{ route('profile.bookings') }}">Мои бронирования</a>
     </div>
-</x-app-layout>
+@endsection
