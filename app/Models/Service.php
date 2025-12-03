@@ -13,9 +13,9 @@ class Service extends Model implements TranslatableContract
     use Translatable;
     use HasFactory;
 
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name', 'description'];
 
-    protected $fillable = ['images', 'category_id', 'slug', 'price'];
+    protected $fillable = ['images', 'category_id', 'slug', 'price', 'description',];
 
     public function category(): BelongsTo
     {
