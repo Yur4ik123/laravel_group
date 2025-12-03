@@ -36,21 +36,21 @@
         </div>
         <div class="cards">
             @forelse($categories as $category)
-            <div class="service-card">
-                <a href="#home">
-                    <img
-                        src="{{ $category->image ? asset('storage/' . $category->image) : asset('images/service-placeholder.jpg') }}"
-                        alt="{{ $category->name }}"
-                    >
-                    <h3>{{ $category->name }}</h3>
-                    {{-- пока нет описания в БД — ставим заглушку --}}
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo.</p>
-                </a>
-            </div>
+                <div class="service-card">
+                    <a href="{{ route('categories.show', $category->slug) }}">
+                        <img
+                            src="{{ $category->image ? asset('storage/' . $category->image) : asset('images/service-placeholder.jpg') }}"
+                            alt="{{ $category->name }}"
+                        >
+                        <h3>{{ $category->name }}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo.</p>
+                    </a>
+                </div>
             @empty
-                <p>Пока нет доступных услуг.</p>
+                <p>Пока нет доступных категорий.</p>
             @endforelse
         </div>
+
     </section>
     <section id="contacts">
         <div class="contact-form">

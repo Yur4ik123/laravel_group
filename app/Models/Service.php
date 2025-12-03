@@ -15,4 +15,10 @@ class Service extends Model implements TranslatableContract
     public $translatedAttributes = ['name'];
 
     protected $fillable = ['images', 'category_id', 'slug', 'price'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
+

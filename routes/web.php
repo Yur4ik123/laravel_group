@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
@@ -17,7 +18,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
-    Route::get('/service', [ServiceController::class, 'index'])->name('service.index');;
+    Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.show');
 });
 require __DIR__ . '/auth.php';
 

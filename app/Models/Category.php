@@ -17,4 +17,9 @@ class Category extends Model implements TranslatableContract
         'slug',
         'image',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }
