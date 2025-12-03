@@ -8,6 +8,7 @@ class CategoryTranslation extends Model
     protected $fillable = [
         'name',
         'locale',
+
     ];
 
     public function category()
