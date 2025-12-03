@@ -19,5 +19,13 @@ class ServiceController extends Controller
         // миграции + модель + админка(управление слотами)
         // вывод услуги
         // route - forman/service-barber
+
+        // return view(services.index, [
+           // 'service' => $service,
+        //]);
+
+
+        // связь с категориями
+        // в админке выпадалка с категориями
     }
 }
