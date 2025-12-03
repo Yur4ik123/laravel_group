@@ -16,6 +16,8 @@ class BookingForm
                 Select::make('user_id')
                     ->label('Клиент')
                     ->relationship('user', 'name')
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->name . ' ' . $record->surname)
+                    ->preload()
                     ->searchable()
                     ->required(),
 
