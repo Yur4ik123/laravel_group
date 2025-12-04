@@ -21,7 +21,10 @@ class StoreBookingRequest extends FormRequest
     {
         return [
             'user_id' => ['nullable', 'exists:users,id'],
-            'email' => ['nullable', 'email'],
+            'name' => ['string'],
+            'surname' => ['nullable','string'],
+            'phone' => ['string'],
+            'email' => ['email'],
             'service_id' => ['required', 'exists:services,id'],
             'slot_id' => ['required', 'exists:slots,id'],
             'date' => ['required', 'date', 'after_or_equal:today'],
