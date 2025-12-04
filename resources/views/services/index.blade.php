@@ -2,7 +2,9 @@
 @push('styles')
     <link rel="stylesheet" href="/css/services.css">
 @endpush
-{{--@dd($service->description)--}}
+@push('scripts')
+    <script src="/js/service.js"></script>
+@endpush
 @section('content')
 <div class="container py-5">
     <!-- Блок інформації про послугу -->
@@ -159,7 +161,7 @@
                             <span id="selectedDate">28 листопада</span> о
                             <span id="selectedTime">09:00</span>
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Забронювати
                             <i class="bi bi-arrow-right ms-2"></i>
                         </button>
@@ -169,4 +171,5 @@
         </div>
     </div>
 </div>
+@include('services.modal_form')
 @endsection
