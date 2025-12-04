@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\ServiceController;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/', function () {
@@ -30,5 +31,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::get('/bookings', [ProfileController::class, 'bookings'])->name('profile.bookings');
 
     });
+
+    Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
 });
 require __DIR__ . '/auth.php';

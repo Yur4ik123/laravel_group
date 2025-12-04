@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
+        $this->call([
+            CategorySeeder::class,
+            ServiceSeeder::class,
+            SlotSeeder::class,
+        ]);
+
+
         // Call StatusesSeeder
         $this->call([
             StatusesSeeder::class,

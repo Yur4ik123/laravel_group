@@ -12,12 +12,12 @@
     "src": "public/images/home-face.jpg"
   },
   "resources/css/app.scss": {
-    "file": "assets/app-CZt1DeEv.css",
+    "file": "assets/app-CvX8eATE.css",
     "src": "resources/css/app.scss",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-D0GCvfrE.js",
+    "file": "assets/app-DgeuWJEE.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
