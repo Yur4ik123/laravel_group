@@ -2,23 +2,21 @@
 @push('styles')
     <link rel="stylesheet" href="/css/services.css">
 @endpush
-
+{{--@dd($service->description)--}}
 @section('content')
 <div class="container py-5">
     <!-- Блок інформації про послугу -->
     <div class="row service-info-block mb-5">
         <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
             <div class="service-image-wrapper">
-                <img src="https://placehold.co/500x400/39cc38/ffffff?text=500x400" alt="Назва послуги" class="img-fluid rounded shadow">
+                <img src="{{Storage::url($service->images)}}" alt="Назва послуги" class="img-fluid rounded shadow">
             </div>
         </div>
         <div class="col-lg-7 col-md-6">
             <div class="service-details">
-                <h1 class="service-title mb-3">Назва послуги</h1>
+                <h1 class="service-title mb-3">{{$service->name}}</h1>
                 <p class="service-description text-muted mb-4">
-                    Детальний опис послуги. Тут можна розповісти про всі особливості процедури,
-                    які техніки використовуються, які результати очікувати. Опис може бути досить
-                    довгим і включати всю необхідну інформацію для клієнта.
+                    {{$service->description}}
                 </p>
 
                 <div class="service-meta">
@@ -28,7 +26,7 @@
                                 <i class="bi bi-currency-dollar fs-4 me-3"></i>
                                 <div>
                                     <small class="text-muted d-block">Ціна</small>
-                                    <strong class="fs-5">1500 грн</strong>
+                                    <strong class="fs-5">{{$service->price}}</strong>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +35,7 @@
                                 <i class="bi bi-clock fs-4 me-3"></i>
                                 <div>
                                     <small class="text-muted d-block">Тривалість</small>
-                                    <strong class="fs-5">1.5 години</strong>
+                                    <strong class="fs-5">1 hour</strong>
                                 </div>
                             </div>
                         </div>

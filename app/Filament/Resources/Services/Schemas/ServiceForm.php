@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\Services\Schemas;
 
+use App\Models\Category;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use App\Filament\Forms\Components\TranslatableFields;
@@ -17,11 +20,19 @@ class ServiceForm
                     TextInput::make('name')
                         ->required(),
                 ]),
+                TranslatableFields::make([
+                    Textarea::make('description')
+                        ->required(),
+                ]),
                 FileUpload::make('images')
                     ->disk('public')
-                    ->directory('services'),
-                TextInput::make('category_id')
-                    ->numeric(),
+                    ->directory('services')
+                ->required(),
+                Select::make('category_id')
+                    ->label('Category name')
+                ->options(Category::all()->pluck('name', 'id'))
+                ->required()
+                ->default(1),
                 TextInput::make('slug')
                     ->required(),
                 TextInput::make('price')

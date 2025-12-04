@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('service_translations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description')->nullable();
             $table->foreignId('service_id')->constrained();
             $table->string('locale')->index();
             $table->unique(['service_id', 'locale']); // ensures that there is only one translation for each language

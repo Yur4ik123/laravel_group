@@ -11,7 +11,7 @@ class Category extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name', 'description'];
 
     protected $fillable = [
         'slug',

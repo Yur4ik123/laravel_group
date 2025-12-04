@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Carbon\Carbon;
+use App\Models\Category;
 class ServiceController extends Controller
 {
-
-    public function index(Request $request)
+    /**
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|object
+     */
+    public function index(string $category_slug, string $service_slug)
     {
-        $inputDate = $request->input('date');
+        $category = Category::where('slug', $category_slug)
+            ->firstOrFail();
+        $service = Service::where('slug', $service_slug)
+            ->where('category_id', $category->id)
+            ->firstOrFail();
+         return view('services.index', [
+            'service' => $service,
+             'category' => $category,
+        ]);
 
-        if ($inputDate) {
-
-        }
-        // управление в админке слотами времени
-        // миграции + модель + админка(управление слотами)
-        // вывод услуги
-        // route - forman/service-barber
     }
 }
