@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\Category;
+
 class ServiceController extends Controller
 {
     /**
@@ -19,10 +21,23 @@ class ServiceController extends Controller
         $service = Service::where('slug', $service_slug)
             ->where('category_id', $category->id)
             ->firstOrFail();
-         return view('services.index', [
+
+        $weekDays = collect();
+        $date = Carbon::now();
+
+        while ($weekDays->count() < 5) {
+            $date->addDay();
+            if (!$date->isWeekend()) {
+                $weekDays->push($date->copy());
+            }
+        }
+
+        return view('services.index', [
             'service' => $service,
-             'category' => $category,
+            'category' => $category,
+            'weekDays' => $weekDays,
         ]);
 
     }
+
 }
