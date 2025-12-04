@@ -22,4 +22,3 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
 });
 require __DIR__ . '/auth.php';
-

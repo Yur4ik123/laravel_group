@@ -39,6 +39,12 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(CategorySeeder::class);
+        $this->call(SlotSeeder::class);
 
+
+        // Call StatusesSeeder
+        $this->call([
+            StatusesSeeder::class,
+        ]);
     }
 }
