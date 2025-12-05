@@ -18,6 +18,11 @@ class Booking extends Model
         'date',
         'status_id',
         'total_price',
+        'phone',
+        'email',
+        'name',
+        'surname',
+        'comment',
     ];
     protected function casts(): array
     {

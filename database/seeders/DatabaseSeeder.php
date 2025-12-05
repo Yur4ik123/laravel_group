@@ -34,12 +34,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            CategorySeeder::class,
             ServiceSeeder::class,
+            SlotSeeder::class,
         ]);
-
-
-        $this->call(CategorySeeder::class);
-        $this->call(SlotSeeder::class);
 
 
         // Call StatusesSeeder

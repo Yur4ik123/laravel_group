@@ -40,10 +40,49 @@ function renderSlots(slots) {
 
 }
 
+/**
+ * Updates the booking summary block with selected date and time.
+ * @param date - formatted date string
+ * @param time - time string
+ */
+function updateBookingSummary(date, time) {
+    const bookingSummary = document.getElementById('bookingSummary');
+    const selectedDateEl = document.getElementById('selectedDate');
+    const selectedTimeEl = document.getElementById('selectedTime');
+
+    if (date && time) {
+        selectedDateEl.textContent = date;
+        selectedTimeEl.textContent = time;
+        bookingSummary.style.display = 'block';
+    } else {
+        bookingSummary.style.display = 'none';
+    }
+}
+
+/**
+ * Formats date from YYYY-MM-DD to readable format based on current locale.
+ * @param dateString
+ * @returns {string}
+ */
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { day: 'numeric', month: 'long' };
+    const locale = document.documentElement.lang || 'uk';
+    return date.toLocaleDateString(locale, options);
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', async function () {
     // Initialize phone masks
     initPhoneMasks();
+
+    // Hide booking summary initially
+    const bookingSummary = document.getElementById('bookingSummary');
+    if (bookingSummary) {
+        bookingSummary.style.display = 'none';
+    }
+
+    let selectedDate = null;
     // get slots for service page
     const dateSelector = document.getElementById('dateSelector');
     if (dateSelector) {
@@ -52,16 +91,33 @@ document.addEventListener('DOMContentLoaded', async function () {
             const button = e.target.closest('button');
             dateSelector.querySelector('button.active').classList.remove('active');
             if (button) {
-                button.classList.toggle('active');
-                const date = button?.dataset.date;
+                button.classList.add('active');
+                let selectedDate = button?.dataset.date;
                 const serviceId = button?.dataset.serviceId;
-                getSlots(date, serviceId).then(slots => renderSlots(slots));
+                getSlots(selectedDate, serviceId).then(slots => {
+                    renderSlots(slots);
+                    updateBookingSummary(null, null);
+                });
             }
         })
-        const date = dateSelector.querySelector('button.active').dataset.date;
-        const serviceId = dateSelector.querySelector('button.active').dataset.serviceId;
-        getSlots(date, serviceId).then(slots => renderSlots(slots));
+        const activeButton = dateSelector.querySelector('button.active');
+        selectedDate = activeButton.dataset.date;
+        const serviceId = activeButton.dataset.serviceId;
+        getSlots(selectedDate, serviceId).then(slots => renderSlots(slots));
+    }
 
+    const selectedSlots = document.getElementById('timeslotsGrid');
+    if (selectedSlots) {
+        selectedSlots.addEventListener('click', (e) => {
+            const slot = e.target.closest('.timeslot-btn');
+            if (slot && !slot.disabled) {
+                selectedSlots.querySelector('.timeslot-btn.active')?.classList.remove('active');
+                slot.classList.add('active');
+                let selectedTime = slot.textContent.trim().replace(/\s+/g, ' ').split(' ').pop();
+                const formattedDate = formatDate(selectedDate);
+                updateBookingSummary(formattedDate, selectedTime);
+            }
+        })
     }
 
 });

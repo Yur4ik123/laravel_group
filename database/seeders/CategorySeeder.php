@@ -14,14 +14,14 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'slug' => 'she',
-            'uk' => ['name' => 'Для жіное'],
+            'slug' => 'for-woman',
+            'uk' => ['name' => 'Для жінок'],
             'ru' => ['name' => 'Для женщин'],
             'en' => ['name' => 'For Lady']
         ]);
 
         Category::create([
-            'slug' => 'He',
+            'slug' => 'for-man',
             'uk' => ['name' => 'Для чоловікі'],
             'ru' => ['name' => 'Для мужчин'],
             'en' => ['name' => 'For Men']

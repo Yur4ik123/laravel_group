@@ -10,9 +10,12 @@ return new class extends Migration {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('images', 255);
-            // TODO $table->foreign('category_id')->references('id')->on('categories');
-            // "todo" after adding categories table
-            $table->foreignId('category_id')->nullable();
+
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories')
+                ->nullOnDelete();
+
             $table->string('slug');
             $table->decimal('price', 8, 2)->default(0);
             $table->timestamps();
