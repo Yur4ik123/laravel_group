@@ -20,6 +20,8 @@ class ServicesTable
                     ->sortable(),
                 TextColumn::make('name')
                     ->sortable(),
+                TextColumn::make('category.name')
+                    ->sortable(),
 
                 TextColumn::make('images')
                     ->searchable(),
