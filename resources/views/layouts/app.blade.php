@@ -51,5 +51,6 @@
 </header>
 <div class="content"></div>
 @yield('content')
+@stack('scripts')
 </body>
 </html>
