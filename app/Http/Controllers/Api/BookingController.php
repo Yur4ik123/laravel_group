@@ -16,6 +16,8 @@ class BookingController extends Controller
      */
     public function store(StoreBookingRequest $request): JsonResponse
     {
+
+
         $data = $request->validated();
 
         // get user_id from email
@@ -26,21 +28,25 @@ class BookingController extends Controller
 
         // get service price
         $service = Service::findOrFail($data['service_id']);
+        if (empty($service)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Отсутствует данная услуга'
+            ]);
+        }
         $data['total_price'] = $service->price;
+
 
         //set default status
         if (empty($data['status_id'])) {
             $data['status_id'] = 1;
         }
 
-        //TODO: уточнить как быть с пользователями анонимными
-//        unset($data['email']);
-
         $booking = Booking::create($data);
 
         return response()->json([
             'success' => true,
-            'message' => 'Бронювання успішно створено',
+            'message' => 'Бронирование успешло создано',
             'data' => $booking->load(['user', 'service', 'slot', 'status']),
         ], 201);
     }
