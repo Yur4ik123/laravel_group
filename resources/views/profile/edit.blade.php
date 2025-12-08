@@ -1,35 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h2>Личный кабинет</h2>
+    <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <div style="width: 100%; max-width: 600px; padding: 30px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; color: var(--color-green); margin-bottom: 30px;">Личный кабинет</h2>
 
-        <form method="POST" action="{{ route('profile.update') }}">
-            @csrf
-            @method('PATCH')
+            <form method="POST" action="{{ route('profile.update') }}" style="display: flex; flex-direction: column; gap: 20px;">
+                @csrf
+                @method('PATCH')
 
-            <label>Имя</label>
-            <input type="text" name="name" value="{{ old('name', $user->name) }}" required>
+                <div class="form-group">
+                    <label for="name" style="display: block;">Имя</label>
+                    <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}" required class="form-control">
+                </div>
 
-            <label>Фамилия</label>
-            <input type="text" name="surname" value="{{ old('surname', $user->surname) }}" required>
+                <div class="form-group">
+                    <label for="surname" style="display: block;">Фамилия</label>
+                    <input id="surname" type="text" name="surname" value="{{ old('surname', $user->surname) }}" required class="form-control">
+                </div>
 
-            <label>Email</label>
-            <input type="email" name="email" value="{{ old('email', $user->email) }}" required>
+                <div class="form-group">
+                    <label for="email" style="display: block;">Email</label>
+                    <input id="email" type="email" name="email" value="{{ old('email', $user->email) }}" required class="form-control">
+                </div>
 
-            <label>Телефон</label>
-            <input type="text" name="phone"
-                   id="phone"
-                   value="{{ old('phone', $user->phone) }}"
-                   placeholder="+38 (0__) ___-__-__"
-                   required>
+                <div class="form-group">
+                    <label for="phone" style="display: block;">Телефон</label>
+                    <input id="phone" type="tel" name="phone" value="{{ old('phone', $user->phone) }}" placeholder="+38 (0__) ___-__-__" required class="form-control">
+                </div>
 
-            <button type="submit">Сохранить</button>
-        </form>
+                <button type="submit" class="btn btn-primary" style="background-color: var(--color-green); border-color: var(--color-green); color: var(--color-white); padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: var(--transition-default); align-self: center;">
+                    Сохранить
+                </button>
+            </form>
 
-        <hr>
+            <hr style="margin: 30px 0; border-color: #e0e0e0;">
 
-        <a href="{{ route('profile.password') }}">Сменить пароль</a> |
-        <a href="{{ route('profile.bookings') }}">Мои бронирования</a>
+            <div style="display: flex; justify-content: center; gap: 20px; font-weight: 500;">
+                <a href="{{ route('profile.password') }}" style="color: var(--color-green); text-decoration: none;">Сменить пароль</a>
+                |
+                <a href="{{ route('profile.bookings') }}" style="color: var(--color-green); text-decoration: none;">Мои бронирования</a>
+            </div>
+        </div>
     </div>
+
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition-default);
+        }
+
+        .form-control:focus {
+            border-color: var(--color-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(57, 204, 56, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #2faa2f;
+            border-color: #2faa2f;
+        }
+
+        label {
+            font-weight: 500;
+        }
+    </style>
 @endsection

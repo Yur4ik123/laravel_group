@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
+use App\Models\Booking;
 
 class ProfileController extends Controller
 {
@@ -84,6 +85,13 @@ class ProfileController extends Controller
     // ✅ Страница бронирований
     public function bookings(): View
     {
-        return view('profile.bookings');
+        $user = Auth::user();
+
+        $bookings = Booking::with(['service', 'status'])
+            ->where('user_id', $user->id)
+            ->orderByDesc('date')
+            ->get();
+
+        return view('profile.bookings', compact('bookings'));
     }
 }

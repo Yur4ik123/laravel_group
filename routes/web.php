@@ -32,6 +32,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     });
 
-    Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
+    Route::get('/profile/bookings', [ProfileController::class, 'bookings'])
+        ->name('profile.bookings');
 });
 require __DIR__ . '/auth.php';
