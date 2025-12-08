@@ -10,7 +10,6 @@ class ServiceTranslation extends Model
     public $timestamps = false;
 
     protected $fillable = ['name', 'description',];
-    protected $fillable = ['name'];
 
     public function category()
     {

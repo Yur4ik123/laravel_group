@@ -1,7 +1,7 @@
 /**
  * Sends form data (FormData) asynchronously to '/api/bookings' using POST.
  */
-document.addEventListener('DOMContentLoaded', function (){
+document.addEventListener('DOMContentLoaded', async function (){
     const bookingForm = document.getElementById('booking-form');
     const sendBtn = bookingForm.querySelector('.btn');
 
@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function (){
             });
 
             const data = await response.json();
-
-            if (!response.success) {
+            if (!data.success) {
                 for (let field in data.errors) {
                     let errorBlock = document.createElement('div');
                     errorBlock.classList.add('input-error');

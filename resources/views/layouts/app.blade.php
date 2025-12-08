@@ -33,7 +33,7 @@
             <li class="menu"><a href="#contacts">Contacts</a></li>
             <li class="menu">
                 @auth
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('profile.edit') }}">
                         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
                     </a>
                 @else

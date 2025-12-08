@@ -9,7 +9,7 @@
         <div class="cards">
             @forelse($services as $service)
                 <div class="service-card">
-                    <a href="#!">
+                    <a href="{{route('service.index',[$category->slug, $service->slug] )}}">
                         <img
                             src="{{ $service->images ? asset('storage/' . $service->images) : asset('images/service-placeholder.jpg') }}"
                             alt="{{ $service->name }}"

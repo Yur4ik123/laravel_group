@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="" id="booking-form">
+                <form method="post" action="" id="booking-form" class="w-full">
                         <input type="hidden" class="form-control" id="service-reserv" name="service_id" value="{{$service->id}}">
                         <input type="hidden" class="form-control" id="date-reserv" name="date">
                         <input type="hidden" class="form-control" id="time-reserv" name="slot_id">
