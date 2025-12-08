@@ -5,6 +5,9 @@
 @push('scripts')
     <script src="/js/service.js"></script>
 @endpush
+@push('scripts')
+    <script src="/js/ajax_for_send_booking.js"></script>
+@endpush
 @section('content')
     <div class="container py-5">
         <!-- Блок інформації про послугу -->

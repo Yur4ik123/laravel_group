@@ -10,14 +10,15 @@
                         <input type="hidden" class="form-control" id="service-reserv" name="service_id" value="{{$service->id}}">
                         <input type="hidden" class="form-control" id="date-reserv" name="date">
                         <input type="hidden" class="form-control" id="time-reserv" name="slot_id">
+                        <input type="hidden" class="form-control" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
 
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="client-name" name="client_name">
+                        <label for="name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Last name</label>
-                        <input type="text" class="form-control" id="last-name" name="last_name">
+                        <input type="text" class="form-control" id="last-name" name="surname">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Email</label>
@@ -31,7 +32,7 @@
                         <label for="message-text" class="col-form-label">Comment (optional)</label>
                         <textarea class="form-control" id="message-text" name="comment"></textarea>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Send message</button>
+                            <button type="submit" class="btn">Send message</button>
                         </div>
                     </div>
                 </form>
