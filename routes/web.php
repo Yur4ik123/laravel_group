@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\ServiceController;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-    Route::get('/', [ServiceController::class, 'index'])->name('home');
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -17,8 +20,21 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
+    Route::middleware(['auth'])->group(function () {
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::get('/profile/password', [ProfileController::class, 'password'])->name('profile.password');
+        Route::patch('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+
+        Route::get('/bookings', [ProfileController::class, 'bookings'])->name('profile.bookings');
+
+    });
+
+    Route::get('/profile/bookings', [ProfileController::class, 'bookings'])
+        ->name('profile.bookings');
     Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
 });
 require __DIR__ . '/auth.php';
-
