@@ -15,5 +15,11 @@ class Category extends Model implements TranslatableContract
 
     protected $fillable = [
         'slug',
+        'image',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

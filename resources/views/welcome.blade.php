@@ -35,22 +35,22 @@
             <h2>Select your service for more detailed information</h2>
         </div>
         <div class="cards">
-            <div class="service-card">
-                <a href="#home">
-                    <img src="images/service1.jpg" alt="service1">
-                    <h3>Very interesting service</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo.</p>
-                </a>
-
-            </div>
-            <div class="service-card">
-                <a href="#home">
-                    <img src="images/service2.jpg" alt="service2">
-                    <h3>Very interesting service</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo.</p>
-                </a>
-            </div>
+            @forelse($categories as $category)
+                <div class="service-card">
+                    <a href="{{ route('categories.show', $category->slug) }}">
+                        <img
+                            src="{{ $category->image ? asset('storage/' . $category->image) : asset('images/service-placeholder.jpg') }}"
+                            alt="{{ $category->name }}"
+                        >
+                        <h3>{{ $category->name }}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo.</p>
+                    </a>
+                </div>
+            @empty
+                <p>Пока нет доступных категорий.</p>
+            @endforelse
         </div>
+
     </section>
     <section id="contacts">
         <div class="contact-form">

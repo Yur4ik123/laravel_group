@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
+    Route::get('/', [ServiceController::class, 'index'])->name('home');
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -19,6 +17,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
+    Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
 });
 require __DIR__ . '/auth.php';
+
