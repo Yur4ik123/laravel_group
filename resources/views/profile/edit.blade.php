@@ -5,7 +5,7 @@
         <div style="width: 100%; max-width: 600px; padding: 30px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             <h2 style="text-align: center; color: var(--color-green); margin-bottom: 30px;">Личный кабинет</h2>
 
-            <form method="POST" action="{{ route('profile.update') }}" style="display: flex; flex-direction: column; gap: 20px;">
+            <form class="w-full" method="POST" action="{{ route('profile.update') }}" style="display: flex; flex-direction: column; gap: 20px;">
                 @csrf
                 @method('PATCH')
 
