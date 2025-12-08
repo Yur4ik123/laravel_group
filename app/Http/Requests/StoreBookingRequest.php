@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreBookingRequest extends FormRequest
 {
@@ -21,7 +23,10 @@ class StoreBookingRequest extends FormRequest
     {
         return [
             'user_id' => ['nullable', 'exists:users,id'],
-            'email' => ['nullable', 'email'],
+            'name' => ['required','string'],
+            'surname' => ['nullable','string'],
+            'phone' => ['required','string'],
+            'email' => ['required','email'],
             'service_id' => ['required', 'exists:services,id'],
             'slot_id' => ['required', 'exists:slots,id'],
             'date' => ['required', 'date', 'after_or_equal:today'],
@@ -33,16 +38,35 @@ class StoreBookingRequest extends FormRequest
      */
     public function messages(): array
     {
-        return [
-            'service_id.required' => 'Оберіть послугу',
-            'service_id.exists' => 'Обрана послуга не існує',
-            'slot_id.required' => 'Оберіть час',
-            'slot_id.exists' => 'Обраний час недоступний',
-            'date.required' => 'Вкажіть дату бронювання',
-            'date.date' => 'Невірний формат дати',
-            'date.after_or_equal' => 'Дата бронювання не може бути в минулому',
-            'email.email' => 'Невірний формат email',
-            'user_id.exists' => 'Користувач не знайдений',
-        ];
+        return
+            [
+                'user_id.exists' => 'Пользователь не найден',
+                'name.required' => 'Укажите имя',
+                'name.string' => 'Имя должно быть текстом',
+                'surname.string' => 'Фамилия должна быть текстом',
+                'phone.required' => 'Укажите номер телефона',
+                'phone.string' => 'Номер телефона должен быть текстом',
+                'email.required' => 'Укажите email',
+                'email.email' => 'Неверный формат email',
+                'service_id.required' => 'Выберите услугу',
+                'service_id.exists' => 'Выбранная услуга не существует',
+                'slot_id.required' => 'Выберите время',
+                'slot_id.exists' => 'Выбранное время недоступно',
+                'date.required' => 'Укажите дату бронирования',
+                'date.date' => 'Неверный формат даты',
+                'date.after_or_equal' => 'Дата бронирования не может быть в прошлом',
+            ];
     }
+
+    protected function failedValidation(Validator $validator): void
+    {
+        throw new HttpResponseException(
+            response()->json([
+                'success' => false,
+                'message' => 'Validation failed for your request.',
+                'errors' => $validator->errors()->toArray(),
+            ], 422)
+        );
+    }
+
 }

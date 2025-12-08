@@ -12,6 +12,9 @@ use Filament\Forms\Components\FileUpload;
 
 class ServiceForm
 {
+    /**
+     * customizing the display of the form for creating and editing services
+     */
     public static function configure(Schema $schema): Schema
     {
         return $schema

@@ -14,6 +14,11 @@ return new class extends Migration {
             $table->id();
             $table->date('date');
             $table->decimal('total_price', 10, 2);
+            $table->string('comment')->nullable();
+            $table->string('phone');
+            $table->string('email');
+            $table->string('name');
+            $table->string('surname')->nullable();
 
             $table->foreignId('user_id')
                 ->nullable()

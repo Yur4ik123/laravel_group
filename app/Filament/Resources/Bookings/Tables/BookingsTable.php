@@ -22,7 +22,7 @@ class BookingsTable
                     ->sortable()
                     ->searchable(),
 
-                TextColumn::make('user.name')
+                TextColumn::make('name')
                     ->label('Клиент')
                     ->sortable()
                     ->searchable(),
