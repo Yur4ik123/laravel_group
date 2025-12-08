@@ -1,4 +1,6 @@
-
+/**
+ * Sends form data (FormData) asynchronously to '/api/bookings' using POST.
+ */
 document.addEventListener('DOMContentLoaded', function (){
     const bookingForm = document.getElementById('booking-form');
     const sendBtn = bookingForm.querySelector('.btn');
