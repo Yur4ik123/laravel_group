@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', async function (){
 
             console.log('Успешный ответ от сервера:', data);
 
-            window.location.href = '/thanks';
+            if (data.success && data.redirect_url) {
+                window.location.href = data.redirect_url;
+            } else {
+                alert(data.message || 'Не удалось создать бронь');
+            };
         } catch (error){
            console.log('error');
         }

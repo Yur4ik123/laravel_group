@@ -45,9 +45,10 @@ class BookingController extends Controller
         $booking = Booking::create($data);
 
         return response()->json([
-            'success' => true,
-            'message' => 'Бронирование успешло создано',
-            'data' => $booking->load(['user', 'service', 'slot', 'status']),
+            'success'      => true,
+            'message'      => 'Бронирование успешно создано',
+            'data'         => $booking->load(['user', 'service', 'slot', 'status']),
+            'redirect_url' => route('booking.thank-you', ['booking' => $booking->id]),
         ], 201);
     }
 }

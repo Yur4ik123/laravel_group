@@ -27,10 +27,11 @@
 
     <nav class="nav" id="navMenu">
         <ul>
-            <li class="menu"><a href="#home">Home</a></li>
-            <li class="menu"><a href="#about">About</a></li>
-            <li class="menu"><a href="#services">Services</a></li>
-            <li class="menu"><a href="#contacts">Contacts</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#home">Home</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#about">About</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#services">Services</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#contacts">Contacts</a></li>
+
             <li class="menu">
                 @auth
                     <a href="{{ route('profile.edit') }}">
