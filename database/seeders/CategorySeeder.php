@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -17,14 +16,14 @@ class CategorySeeder extends Seeder
             'slug' => 'for-woman',
             'uk' => ['name' => 'Для жінок'],
             'ru' => ['name' => 'Для женщин'],
-            'en' => ['name' => 'For Lady']
+            'en' => ['name' => 'For Lady'],
         ]);
 
         Category::create([
             'slug' => 'for-man',
             'uk' => ['name' => 'Для чоловікі'],
             'ru' => ['name' => 'Для мужчин'],
-            'en' => ['name' => 'For Men']
+            'en' => ['name' => 'For Men'],
         ]);
     }
 }

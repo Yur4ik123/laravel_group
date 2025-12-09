@@ -2,18 +2,18 @@
 
 namespace App\Filament\Resources\Bookings\Schemas;
 
-use Filament\Schemas\Schema;
+use App\Models\Booking;
+use App\Models\Service;
+use App\Models\Slot;
+use App\Models\User;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
-use App\Models\User;
-use App\Models\Slot;
-use App\Models\Booking;
-use App\Models\Service;
+use Filament\Schemas\Schema;
 
 class BookingForm
 {
@@ -26,7 +26,7 @@ class BookingForm
                         Select::make('user_id')
                             ->label('Пользователи')
                             ->relationship('user', 'name')
-                            ->getOptionLabelFromRecordUsing(fn ($record) => $record->name . ' ' . $record->surname . ' (' . $record->email . ')')
+                            ->getOptionLabelFromRecordUsing(fn ($record) => $record->name.' '.$record->surname.' ('.$record->email.')')
                             ->preload()
                             ->searchable()
                             ->nullable()
@@ -126,7 +126,7 @@ class BookingForm
                                 $date = $get('date');
                                 $serviceId = $get('service_id');
 
-                                if (!$date || !$serviceId) {
+                                if (! $date || ! $serviceId) {
                                     return Slot::all()->pluck('slot', 'id');
                                 }
 
@@ -136,14 +136,14 @@ class BookingForm
                                         ->where('service_id', $serviceId)
                                         ->exists();
 
-                                    return !$isBooked;
+                                    return ! $isBooked;
                                 })->pluck('slot', 'id');
                             })
                             ->searchable()
                             ->required()
                             ->live()
-                            ->disabled(fn (Get $get) => !$get('date') || !$get('service_id'))
-                            ->helperText(fn (Get $get) => !$get('date') || !$get('service_id')
+                            ->disabled(fn (Get $get) => ! $get('date') || ! $get('service_id'))
+                            ->helperText(fn (Get $get) => ! $get('date') || ! $get('service_id')
                                 ? 'Сначала выберите услугу и дату'
                                 : null),
 

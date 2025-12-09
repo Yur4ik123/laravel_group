@@ -19,9 +19,13 @@ class BookingResource extends Resource
     protected static ?string $model = Booking::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ArchiveBox;
+
     protected static ?string $breadcrumb = 'Бронирования';
+
     protected static ?string $navigationLabel = 'Бронирования';
+
     protected static ?string $modelLabel = 'бронирования';
+
     protected static ?string $pluralModelLabel = 'Бронирования';
 
     public static function form(Schema $schema): Schema

@@ -4,10 +4,10 @@ namespace App\Filament\Resources\Categories;
 
 use App\Models\Category;
 use Filament\Forms;
-use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
-use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -15,14 +15,18 @@ use Illuminate\Support\Str;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
+
     protected static ?string $recordTitleAttribute = 'name';
+
     protected static string|null|\BackedEnum $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationLabel = 'Категории';
+
     protected static ?string $pluralLabel = 'Категории';
 
     public static function form(Schema $schema): Schema
     {
-        $locales    = config('translatable.locales', ['uk', 'ru', 'en']);
+        $locales = config('translatable.locales', ['uk', 'ru', 'en']);
         $mainLocale = config('app.fallback_locale', $locales[0] ?? 'uk');
 
         $tabs = [];
@@ -43,7 +47,7 @@ class CategoryResource extends Resource
                         ->live(onBlur: true)
                         ->afterStateUpdated(
                             function ($state, $set, $get) use ($mainLocale, $locale) {
-                                if ($mainLocale === $locale && empty($get('slug')) && !empty($state)) {
+                                if ($mainLocale === $locale && empty($get('slug')) && ! empty($state)) {
                                     $set('slug', Str::slug($state));
                                 }
                             }
@@ -52,6 +56,16 @@ class CategoryResource extends Resource
         }
 
         return $schema->schema([
+            Forms\Components\FileUpload::make('image')
+                ->label('Картинка категории')
+                ->image()
+                ->directory('categories')      // файлы будут лежать в storage/app/public/categories
+                ->disk('public')
+                ->imagePreviewHeight('150')
+                ->downloadable(false)
+                ->openable()                   // можно открыть в новом окне
+                ->nullable(),
+
             Forms\Components\TextInput::make('slug')
                 ->label('Slug')
                 ->required()
@@ -67,6 +81,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')->label('Картинка')->disk('public')->height(40)->width(40),
                 Tables\Columns\TextColumn::make('id')->label('ID')->sortable(),
                 Tables\Columns\TextColumn::make('name')->label('Название')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('slug')->label('Slug')->sortable()->searchable(),
@@ -85,11 +100,12 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListCategories::route('/'),
+            'index' => Pages\ListCategories::route('/'),
             'create' => Pages\CreateCategory::route('/create'),
-            'edit'   => Pages\EditCategory::route('/{record}/edit'),
+            'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
     }
+
     public static function prepareTranslatableData(array $data): array
     {
         $locales = config('translatable.locales', ['uk', 'ru', 'en']);
@@ -98,6 +114,7 @@ class CategoryResource extends Resource
 
             if (! isset($data[$locale]) || ! is_array($data[$locale])) {
                 unset($data[$locale]);
+
                 continue;
             }
 
@@ -105,6 +122,7 @@ class CategoryResource extends Resource
 
             if ($name === '') {
                 unset($data[$locale]);
+
                 continue;
             }
 
@@ -115,5 +133,4 @@ class CategoryResource extends Resource
 
         return $data;
     }
-
 }

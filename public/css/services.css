@@ -12,6 +12,10 @@
     font-weight: 700;
     color: var(--color-text-dark, #4b4c4c);
 }
+.input-error{
+    color: red;
+    font-size: 12px;
+}
 
 .service-description {
     line-height: 1.7;
@@ -129,13 +133,13 @@
     padding: 1.25rem;
 }
 
-.booking-summary .btn-primary {
+.booking-summary .btn-primary, .modal-footer> .btn{
     background-color: var(--color-green, #39cc38);
     border-color: var(--color-green, #39cc38);
     transition: all var(--transition-default, 0.3s) ease;
 }
 
-.booking-summary .btn-primary:hover {
+.booking-summary .btn-primary:hover{
     background-color: #2db82c;
     border-color: #2db82c;
     transform: translateY(-2px);

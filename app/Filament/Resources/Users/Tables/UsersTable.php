@@ -2,18 +2,16 @@
 
 namespace App\Filament\Resources\Users\Tables;
 
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Actions\ActionGroup;
-use Filament\Tables\Table;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
-use Filament\Actions\Action;
-
 
 class UsersTable
 {
@@ -41,8 +39,8 @@ class UsersTable
                     ->label('Роль'),
             ])
             ->filters([
-                Filter::make('Админ')->query(fn($query) => $query->where('role', 'admin'))->label('Админ'),
-                Filter::make('Пользователь сайта')->query(fn($query) => $query->where('role', 'user'))->label('Пользователь сайта'),
+                Filter::make('Админ')->query(fn ($query) => $query->where('role', 'admin'))->label('Админ'),
+                Filter::make('Пользователь сайта')->query(fn ($query) => $query->where('role', 'user'))->label('Пользователь сайта'),
             ])
             ->recordActions([
                 ActionGroup::make([
@@ -51,17 +49,18 @@ class UsersTable
                         ->color('success')
                         ->requiresConfirmation()
                         ->modalHeading('Войти как пользователь?')
-                        ->modalDescription(fn($record) => "Вы войдете в систему как $record->full_name")
+                        ->modalDescription(fn ($record) => "Вы войдете в систему как $record->full_name")
                         ->modalSubmitActionLabel('Войти')
                         ->action(function ($record) {
                             Auth::loginUsingId($record->id);
+
                             return redirect('/dashboard');
                         })
-                        ->hidden(fn($record) => $record->id === Auth::id()),
+                        ->hidden(fn ($record) => $record->id === Auth::id()),
                     EditAction::make(),
                     DeleteAction::make(),
 
-                ])
+                ]),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

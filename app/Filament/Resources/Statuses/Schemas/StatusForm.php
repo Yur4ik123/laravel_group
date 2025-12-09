@@ -2,12 +2,10 @@
 
 namespace App\Filament\Resources\Statuses\Schemas;
 
-use Filament\Forms;
-use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
-use App\Models\Status;
+use Filament\Schemas\Schema;
 
 class StatusForm
 {

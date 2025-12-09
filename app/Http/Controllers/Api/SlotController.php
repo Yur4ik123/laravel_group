@@ -16,16 +16,15 @@ class SlotController extends Controller
      * This method fetches all slots, checks their booking status for a provided
      * date and service, and maps them to include an availability indicator.
      *
-     * @param Request $request The HTTP request containing the 'date' and 'serviceId'.
-     *
+     * @param  Request  $request  The HTTP request containing the 'date' and 'serviceId'.
      * @return JsonResponse A JSON response containing a list of slots with
-     * their availability status.
+     *                      their availability status.
      */
     public function getSlots(Request $request): JsonResponse
     {
         $date = $request->get('date');
         $serviceId = $request->get('serviceId');
-        if (!$date) {
+        if (! $date) {
             return response()->json([]);
         }
 
@@ -38,7 +37,7 @@ class SlotController extends Controller
             return [
                 'id' => $slot->id,
                 'slot' => $slot->slot,
-                'available' => !$isBooked,
+                'available' => ! $isBooked,
             ];
         });
 

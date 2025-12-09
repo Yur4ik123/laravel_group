@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Service;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use App\Models\Category;
+use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
     /**
+     * Display the service page with available booking dates.
+     * Finds a service by slug within a specific category and returns
+     * the next 5 weekdays (excluding weekends) for booking.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|object
+     * @param  string  $category_slug  The category slug
+     * @param  string  $service_slug  The service slug
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
-    public function index(string $category_slug, string $service_slug)
+    public function index(string $category_slug, string $service_slug): View
     {
         $category = Category::where('slug', $category_slug)
             ->firstOrFail();
@@ -27,7 +32,7 @@ class ServiceController extends Controller
 
         while ($weekDays->count() < 5) {
             $date->addDay();
-            if (!$date->isWeekend()) {
+            if (! $date->isWeekend()) {
                 $weekDays->push($date->copy());
             }
         }
@@ -39,5 +44,4 @@ class ServiceController extends Controller
         ]);
 
     }
-
 }

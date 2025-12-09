@@ -17,9 +17,13 @@ use Filament\Tables\Table;
 class SlotResource extends Resource
 {
     protected static ?string $breadcrumb = 'слоты';
+
     protected static ?string $navigationLabel = 'Slots';
+
     protected static ?string $modelLabel = 'слота';
+
     protected static ?string $pluralModelLabel = 'Слоты';
+
     protected static ?string $model = Slot::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
