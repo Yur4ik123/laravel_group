@@ -16,6 +16,9 @@ class Service extends Model implements TranslatableContract
 
     protected $fillable = ['images', 'category_id', 'slug', 'price'];
 
+    /**
+     * Get the category that owns the service.
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
