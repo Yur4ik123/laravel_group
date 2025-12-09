@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\ServiceController;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
@@ -19,6 +20,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
-    Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
+    Route::middleware(['auth'])->group(function () {
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::get('/profile/password', [ProfileController::class, 'password'])->name('profile.password');
+        Route::patch('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+
+        Route::get('/bookings', [ProfileController::class, 'bookings'])->name('profile.bookings');
+
+    });
+
+    Route::get('/profile/bookings', [ProfileController::class, 'bookings'])
+        ->name('profile.bookings');
 });
 require __DIR__ . '/auth.php';

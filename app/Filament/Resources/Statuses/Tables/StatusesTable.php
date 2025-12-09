@@ -7,6 +7,8 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use App\Models\Status;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 
 class StatusesTable
 {
@@ -30,8 +32,8 @@ class StatusesTable
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+               EditAction::make(),
+                DeleteAction::make(),
             ]);
     }
 }
