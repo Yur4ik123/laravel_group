@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources\Categories\Pages;
 
 use App\Filament\Resources\Categories\CategoryResource;
@@ -10,7 +11,7 @@ class EditCategory extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        $record  = $this->record;
+        $record = $this->record;
         $locales = config('translatable.locales', ['uk', 'ru', 'en']);
 
         foreach ($locales as $locale) {

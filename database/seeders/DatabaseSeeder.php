@@ -39,7 +39,6 @@ class DatabaseSeeder extends Seeder
             SlotSeeder::class,
         ]);
 
-
         // Call StatusesSeeder
         $this->call([
             StatusesSeeder::class,

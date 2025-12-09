@@ -30,7 +30,7 @@
                                 <div class="meta-item d-flex align-items-center">
                                     <i class="bi bi-currency-dollar fs-4 me-3"></i>
                                     <div>
-                                        <small class="text-muted d-block">Ціна</small>
+                                        <small class="text-muted d-block">{{ __('services.price') }}</small>
                                         <strong class="fs-5">{{$service->price}}</strong>
                                     </div>
                                 </div>
@@ -39,8 +39,8 @@
                                 <div class="meta-item d-flex align-items-center">
                                     <i class="bi bi-clock fs-4 me-3"></i>
                                     <div>
-                                        <small class="text-muted d-block">Тривалість</small>
-                                        <strong class="fs-5">1 hour</strong>
+                                        <small class="text-muted d-block">{{ __('services.duration') }}</small>
+                                        <strong class="fs-5">{{ __('services.duration_value') }}</strong>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                 <div class="timeslots-section">
                     <h2 class="section-title mb-4">
                         <i class="bi bi-calendar-check me-2"></i>
-                        Оберіть зручний час
+                        {{ __('services.select_time') }}
                     </h2>
 
                     <!-- Вибір дати -->
@@ -71,7 +71,7 @@
                                         <div
                                             class="date-day">{{$day->locale(app()->getLocale())->isoFormat('dd')}}</div>
                                         <div class="date-number">{{ $day->format('d') }}</div>
-                                        <div class="date-month">{{ $day->locale('uk')->isoFormat('MMM') }}</div>
+                                        <div class="date-month">{{ $day->locale(app()->getLocale())->isoFormat('MMM') }}</div>
                                     </button>
                                 </div>
                             @endforeach
@@ -90,12 +90,12 @@
                 <div class="booking-summary mt-4" id="bookingSummary">
                     <div class="alert alert-info d-flex align-items-center justify-content-between">
                         <div>
-                            <strong>Обрано:</strong>
-                            <span id="selectedDate">28 листопада</span> о
+                            <strong>{{ __('services.selected') }}:</strong>
+                            <span id="selectedDate">28 листопада</span> {{ __('booking.at') }}
                             <span id="selectedTime">09:00</span>
                         </div>
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Забронювати
+                            {{ __('services.book') }}
                             <i class="bi bi-arrow-right ms-2"></i>
                         </button>
                     </div>

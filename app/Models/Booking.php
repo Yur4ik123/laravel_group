@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-
 class Booking extends Model
 {
     use HasFactory;
@@ -24,6 +23,7 @@ class Booking extends Model
         'surname',
         'comment',
     ];
+
     protected function casts(): array
     {
         return [
@@ -51,6 +51,4 @@ class Booking extends Model
     {
         return $this->belongsTo(Status::class);
     }
-
-
 }

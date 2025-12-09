@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources\Statuses\Tables;
 
-use Filament\Tables;
-use Filament\Tables\Table;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
 use App\Models\Status;
-use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class StatusesTable
 {
@@ -32,7 +31,7 @@ class StatusesTable
                 //
             ])
             ->actions([
-               EditAction::make(),
+                EditAction::make(),
                 DeleteAction::make(),
             ]);
     }

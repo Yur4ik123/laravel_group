@@ -49,7 +49,6 @@ function updateBookingSummary(date, time) {
     const bookingSummary = document.getElementById('bookingSummary');
     const selectedDateEl = document.getElementById('selectedDate');
     const selectedTimeEl = document.getElementById('selectedTime');
-
     if (date && time) {
         selectedDateEl.textContent = date;
         selectedTimeEl.textContent = time;
@@ -114,7 +113,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 selectedSlots.querySelector('.timeslot-btn.active')?.classList.remove('active');
                 slot.classList.add('active');
                 let selectedTime = slot.textContent.trim().replace(/\s+/g, ' ').split(' ').pop();
-                const formattedDate = formatDate(selectedDate);
+                const formattedDate = formatDate(dateSelector.querySelector('button.active')?.dataset.date);
                 updateBookingSummary(formattedDate, selectedTime);
             }
         })

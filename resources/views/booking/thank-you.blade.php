@@ -8,16 +8,16 @@
 
     <section class="thank-you">
         <div class="emoji">💚</div>
-        <h2>Запись подтверждена!</h2>
+        <h2>{{ __('booking.confirmed') }}</h2>
         <p>
-            Спасибо! Мы ждём вас
-            <strong>{{ $booking->date }}</strong>
-            в <strong>{{ optional($booking->slot)->time ?? '' }}</strong>.
+            {{ __('booking.thank_you') }}
+            <strong>{{ $booking->date->format('d.m.Y') }}</strong>
+            {{ __('booking.at') }} <strong>{{ optional($booking->slot)->slot ?? '' }}</strong>.
         </p>
         <p>
-            Услуга: <strong>{{ $booking->service->name ?? '' }}</strong>
+            {{ __('booking.service') }}: <strong>{{ $booking->service->name ?? '' }}</strong>
         </p>
-        <a href="{{ route('home') }}" class="btn-home">Вернуться на главную</a>
+        <a href="{{ route('home') }}" class="btn-home">{{ __('booking.back_home') }}</a>
     </section>
 
 @endsection

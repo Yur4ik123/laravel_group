@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('service_id')->constrained();
             $table->string('locale')->index();
             $table->unique(['service_id', 'locale']); // ensures that there is only one translation for each language
-                                                      // for one service
+            // for one service
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-//        Schema::dropIfExists('service_translations');
+        //        Schema::dropIfExists('service_translations');
     }
 };

@@ -43,6 +43,16 @@ header {
     font-size: 20px;
     margin: 0;
 }
+.logo a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+}
+.dropdown-menu{
+    display: none !important;
+}
+.dropdown-menu.show{
+    display: block !important;
+}
 
 .burger-btn {
     display: none;

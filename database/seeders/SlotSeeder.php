@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Slot;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SlotSeeder extends Seeder
@@ -26,7 +24,7 @@ class SlotSeeder extends Seeder
             '17:00',
             '18:00',
         ];
-        foreach ($times as $time){
+        foreach ($times as $time) {
             Slot::create([
                 'slot' => $time,
             ]);

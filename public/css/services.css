@@ -12,6 +12,10 @@
     font-weight: 700;
     color: var(--color-text-dark, #4b4c4c);
 }
+.input-error{
+    color: red;
+    font-size: 12px;
+}
 
 .service-description {
     line-height: 1.7;

@@ -23,10 +23,10 @@ class StoreBookingRequest extends FormRequest
     {
         return [
             'user_id' => ['nullable', 'exists:users,id'],
-            'name' => ['required','string'],
-            'surname' => ['nullable','string'],
-            'phone' => ['required','string'],
-            'email' => ['required','email'],
+            'name' => ['required', 'string'],
+            'surname' => ['nullable', 'string'],
+            'phone' => ['required', 'string'],
+            'email' => ['required', 'email'],
             'service_id' => ['required', 'exists:services,id'],
             'slot_id' => ['required', 'exists:slots,id'],
             'date' => ['required', 'date', 'after_or_equal:today'],
@@ -68,5 +68,4 @@ class StoreBookingRequest extends FormRequest
             ], 422)
         );
     }
-
 }

@@ -14,10 +14,10 @@ return [
         'ru',
         'en',
         'uk',
-//        'es' => [
-//            'MX', // mexican spanish
-//            'CO', // colombian spanish
-//        ],
+        //        'es' => [
+        //            'MX', // mexican spanish
+        //            'CO', // colombian spanish
+        //        ],
     ],
 
     /*

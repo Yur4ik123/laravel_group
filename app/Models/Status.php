@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory; // <- добавляем
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory; // <- добавляем
+use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
@@ -12,5 +12,6 @@ class Status extends Model
     use Translatable;
 
     public $translatedAttributes = ['name']; // переводимое поле
+
     protected $fillable = ['slug', 'active'];
 }

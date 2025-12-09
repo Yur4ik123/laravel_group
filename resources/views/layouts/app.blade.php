@@ -27,10 +27,28 @@
 
     <nav class="nav" id="navMenu">
         <ul>
-            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#home">Home</a></li>
-            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#about">About</a></li>
-            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#services">Services</a></li>
-            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#contacts">Contacts</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#home">{{ __('navigation.home') }}</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#about">{{ __('navigation.about') }}</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#services">{{ __('navigation.services') }}</a></li>
+            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#contacts">{{ __('navigation.contacts') }}</a></li>
+
+            <li class="menu dropdown">
+                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ strtoupper(app()->getLocale()) }}
+                </a>
+                <ul class="dropdown-menu shadow-lg border-0 rounded-lg py-2 !min-w-fit">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        @if(app()->getLocale() != $localeCode)
+                        <li class="m-0">
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                               class="!w-fit dropdown-item px-4 py-2 hover:bg-gray-100 transition-colors">
+                                {{ strtoupper($localeCode) }}
+                            </a>
+                        </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </li>
 
             <li class="menu">
                 @auth
@@ -39,10 +57,11 @@
                     </a>
                 @else
                     <a href="{{ route('login') }}">
-                        <i class="bi bi-person-circle"></i> {{ __('auth.log_in', [], 'en') }}
+                        <i class="bi bi-person-circle"></i> {{ __('auth.log_in') }}
                     </a>
                 @endauth
             </li>
+
         </ul>
     </nav>
     <div class="overlay" id="overlay"></div>

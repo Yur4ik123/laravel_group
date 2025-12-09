@@ -1,17 +1,15 @@
 <?php
 
-use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\BookingThankController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
+use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),
-    ], function () {
+], function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -38,5 +36,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/{category_slug}/{service_slug}', [ServiceController::class, 'index'])->name('service.index');
 });
-require __DIR__ . '/auth.php';
-
+require __DIR__.'/auth.php';
