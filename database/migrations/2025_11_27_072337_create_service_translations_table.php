@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->foreignId('service_id')->constrained();
+            $table->foreignId('service_id')->constrained()->onDelete('cascade');
             $table->string('locale')->index();
             $table->unique(['service_id', 'locale']); // ensures that there is only one translation for each language
             // for one service
