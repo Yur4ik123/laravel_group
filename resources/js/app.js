@@ -1,7 +1,7 @@
 import './bootstrap';
 import * as bootstrap from 'bootstrap';
 import './modules/burger.js'
-
+import 'animate.css';
 // Import modules
 import {initPhoneMasks} from './modules/phoneMask';
 

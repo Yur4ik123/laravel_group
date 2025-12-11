@@ -1,4 +1,4 @@
-:root{
+:root {
     /* используются 2+ раз*/
     --color-white: #ffffff;
     --color-green: #39cc38;
@@ -11,12 +11,7 @@
 html {
     scroll-behavior: smooth;
 }
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    /*min-height: 100vh;*/
-}
+
 
 /** =========================================================**/
 header {
@@ -43,14 +38,17 @@ header {
     font-size: 20px;
     margin: 0;
 }
+
 .logo a {
     text-decoration: none;
     color: var(--color-text-dark);
 }
-.dropdown-menu{
+
+.dropdown-menu {
     display: none !important;
 }
-.dropdown-menu.show{
+
+.dropdown-menu.show {
     display: block !important;
 }
 
@@ -98,9 +96,8 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     opacity: 0;
-    transition:
-        opacity var(--transition-default) ease-in-out,
-        display var(--transition-default) allow-discrete;
+    transition: opacity var(--transition-default) ease-in-out,
+    display var(--transition-default) allow-discrete;
 }
 
 .overlay.active {
@@ -131,7 +128,7 @@ header {
     color: var(--color-text-gray);
     cursor: pointer;
 
-    a{
+    a {
         text-decoration: none;
         color: var(--color-text-gray);
         transition: color var(--transition-default), transform var(--transition-default);
@@ -147,10 +144,10 @@ header {
 
 /** home section======================================================= **/
 #home {
-    margin-bottom: 100px;
     margin-top: 0;
 }
-.home-margin-top{
+
+.home-margin-top {
     width: 100%;
     height: 80px;
 }
@@ -159,7 +156,7 @@ header {
     width: 100%;
     height: 80vh;
     background-color: var(--color-white);
-    background-image: url("~img/home-face.jpg");
+    background-image: url("/images/home-face.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -230,8 +227,10 @@ header {
     cursor: pointer;
 
 }
-.home-text button{
-    width: 180px;
+
+.home-text button {
+    width: fit-content;
+    padding: 0 20px;
     animation: fadeInUp 0.8s ease-out 1.4s forwards;
     transition: background-color var(--transition-default), transform var(--transition-default);
     opacity: 0;
@@ -253,98 +252,116 @@ header {
     }
 }
 
-#about, #services, #contacts{
-    padding: 130px 350px 100px 350px;
-    min-height: 80vh;
+#about, #services, #contacts {
+    padding: 100px 0;
     box-sizing: border-box;
     display: flex;
-    margin-bottom: 90px;
 
 }
-.about-text{
-    padding-top: 50px;
-    padding-right: 50px;
-    box-sizing: border-box;
-    h2{
+#about{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 50px;
+    align-self: center;
+}
+
+.about-text {
+    align-self: center;
+
+    h2 {
         font-size: 32px;
         margin-bottom: 5px;
     }
-    p{
+
+    p {
         margin-top: 30px;
     }
-    span{
+
+    span {
         font-weight: bold;
         color: var(--color-green);
         text-transform: uppercase;
     }
 }
-.about-img > img{
-    width: 400px;
+
+.about-img > img {
+    width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
-#services{
+#services {
     background-color: #eef1ef;
     flex-direction: column;
     padding-top: 100px;
 }
-#services > div > h2{
+
+#services > div > h2 {
     margin-bottom: 50px;
     margin-top: 2px;
 }
-#services > div:first-child p{
+
+#services > div:first-child p {
     color: var(--color-green);
     font-weight: bold;
     text-transform: uppercase;
 }
-.cards{
-    display: flex;
-    justify-content: space-around;
-    gap: 50px;
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
 }
 
-.service-card{
-    width: 600px;
+.service-card {
     overflow: hidden;
     background-color: white;
-    padding-bottom: 20px;
     box-sizing: border-box;
     transition: transform var(--transition-default), color var(--transition-default);
-    img{
+
+    img {
         width: 100%;
         height: 50%;
         object-fit: cover;
+        aspect-ratio: 2/1;
     }
-    h3{
+
+    h3 {
         margin: 10px;
     }
-    p{
+
+    p {
         margin: 10px 5px 20px 10px;
     }
-    a{
+
+    a {
         text-decoration: none;
         color: var(--color-text-dark);
+        display: block;
     }
 }
-.service-card:hover{
+
+.service-card:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transform: scale(1.1);
-    h3{
+
+    h3 {
         color: var(--color-green);
     }
 }
 
-#contacts{
+#contacts {
     justify-content: space-around;
     gap: 50px;
 }
 
-form{
+form {
     width: 400px;
     display: flex;
     flex-direction: column;
-    input, textarea{
+
+    input, textarea {
         box-sizing: border-box;
         font-family: inherit;
         border: rgba(75, 76, 76, 0.49) 2px solid;
@@ -353,17 +370,20 @@ form{
         margin-bottom: 10px;
         transition: all var(--transition-default) ease;
     }
-    input:focus, textarea:focus{
+
+    input:focus, textarea:focus {
         outline: none;
         border-color: var(--color-green);
         box-shadow: 0 0 10px 1px rgba(57, 204, 56, 0.7);
     }
-    button{
+
+    button {
         width: 100%;
     }
 
 }
-.other-contacts{
+
+.other-contacts {
     width: 400px;
 }
 
@@ -395,6 +415,7 @@ form{
         align-items: flex-start;
         padding: 20px;
         gap: 0;
+        width: 100%;
     }
 
     .nav ul li {
@@ -416,9 +437,6 @@ form{
         border-top: 1px solid #f0f0f0;
     }
 
-    #about, #services, #contacts {
-        padding: 100px 40px 80px 40px;
-    }
 
     #about {
         flex-direction: column;
@@ -431,13 +449,11 @@ form{
 
     .about-img > img {
         width: 100%;
-        max-width: 400px;
-        margin-top: 30px;
     }
 
     .cards {
-        flex-direction: column;
-        gap: 30px;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
     }
 
     .service-card {
@@ -454,6 +470,15 @@ form{
     }
 }
 
+@media (max-width: 768px) {
+    #about, #services, #contacts{
+        padding: 50px 0;
+    }
+    #about{
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
+}
 @media (max-width: 576px) {
     header {
         height: 70px;
@@ -517,15 +542,11 @@ form{
     }
 
     .home-text button {
-        width: 160px;
         height: 40px;
         font-size: 14px;
     }
 
-    #about, #services, #contacts {
-        padding: 80px 15px 60px 15px;
-        margin-bottom: 60px;
-    }
+
 
     .about-text h2, #services > div > h2 {
         font-size: 24px;
@@ -590,15 +611,10 @@ form{
     }
 
     .home-text button {
-        width: 170px;
         height: 42px;
         font-size: 15px;
     }
 
-    #about, #services, #contacts {
-        padding: 90px 30px 70px 30px;
-        margin-bottom: 70px;
-    }
 
     .about-text h2, #services > div > h2 {
         font-size: 28px;
@@ -668,18 +684,11 @@ form{
     }
 
     .home-text button {
-        width: 190px;
         height: 48px;
         font-size: 18px;
     }
 
-    #about, #services, #contacts {
-        padding: 100px 50px 80px 50px;
-    }
 
-    .about-img > img {
-        width: 350px;
-    }
 
     .cards {
         gap: 40px;
@@ -722,17 +731,12 @@ form{
         font-size: 22px;
     }
 
-    #about, #services, #contacts {
-        padding: 120px 80px 90px 80px;
-    }
+
 
     .about-text {
         padding-right: 30px;
     }
 
-    .about-img > img {
-        width: 350px;
-    }
 
     .service-card {
         width: 100%;
@@ -770,17 +774,11 @@ form{
         font-size: 24px;
     }
 
-    #about, #services, #contacts {
-        padding: 130px 150px 100px 150px;
-    }
 
     .about-text {
         padding-right: 40px;
     }
 
-    .about-img > img {
-        width: 380px;
-    }
 }
 
 @media (min-width: 1401px) {
@@ -822,13 +820,12 @@ form{
     }
 
     .home-text button {
-        width: 200px;
         height: 50px;
         font-size: 20px;
     }
 
     #about, #services, #contacts {
-        padding: 130px 350px 100px 350px;
+        padding: 100px 0;
     }
 }
 
@@ -859,7 +856,6 @@ form{
     }
 
     .home-text button {
-        width: 140px;
         height: 38px;
         font-size: 13px;
     }

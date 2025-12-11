@@ -17,7 +17,7 @@ class EditService extends EditRecord
         foreach ($locales as $locale) {
             $translation = $this->record->translate($locale);
             if ($translation) {
-                $data[$locale] = $translation->only(['name']);
+                $data[$locale] = $translation->only(['name', 'description']);
             }
         }
 

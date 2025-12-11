@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="/css/main_styles.css">
     @stack('styles')
 </head>
 <body>
@@ -30,8 +30,6 @@
             <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#home">{{ __('navigation.home') }}</a></li>
             <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#about">{{ __('navigation.about') }}</a></li>
             <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#services">{{ __('navigation.services') }}</a></li>
-            <li class="menu"><a href="{{ LaravelLocalization::localizeUrl('/') }}#contacts">{{ __('navigation.contacts') }}</a></li>
-
             <li class="menu dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ strtoupper(app()->getLocale()) }}

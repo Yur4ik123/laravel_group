@@ -33,7 +33,7 @@ overlay.addEventListener('click', closeMenu);
  */
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
-        closeMenu();
+        // closeMenu();
         //TODO smooth transition to sections
         console.log('Clicked:', item.textContent);
     });

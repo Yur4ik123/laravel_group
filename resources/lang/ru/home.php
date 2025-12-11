@@ -9,7 +9,7 @@ return [
     // About section
     'about_title' => 'О нас',
     'about_subtitle' => 'красиво и уникально',
-    'about_text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam autem cum cupiditate debitis dignissimos dolor dolores ea earum eveniet, explicabo facere facilis hic illum impedit incidunt iste molestias necessitatibus nobis non numquam pariatur possimus quo, ratione, recusandae repellat reprehenderit repudiandae saepe sapiente sint tempore ullam vel veniam voluptates voluptatibus.',
+    'about_text' => 'Мы - современный салон красоты, где каждый клиент получает индивидуальный подход и профессиональный уход. Наша команда опытных мастеров предлагает широкий спектр услуг для женщин и мужчин: от стрижек и окрашивания до маникюра, педикюра и косметологических процедур. Мы используем только качественные материалы и современные техники, чтобы вы выглядели и чувствовали себя прекрасно. Наша цель - подчеркнуть вашу естественную красоту и создать уютную атмосферу, где вы сможете расслабиться и насладиться процессом преображения.',
 
     // Services section
     'services_subtitle' => 'Гладко и шелковисто',
