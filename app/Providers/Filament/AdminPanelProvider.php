@@ -51,9 +51,13 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \App\Http\Middleware\SetFilamentLocale::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->resources([
+                \App\Filament\Resources\Categories\CategoryResource::class,
             ]);
     }
 }
