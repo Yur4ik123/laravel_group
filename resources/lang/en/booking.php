@@ -1,11 +1,17 @@
 <?php
 
 return [
+    'service' => 'Service',
+    'date' => 'Date',
+    'price' => 'Price',
+    'status' => 'Status',
+    'phone' => 'Phone',
     // Modal form
     'modal_title' => 'Your reservation',
     'name' => 'Name',
     'last_name' => 'Last name',
     'email' => 'Email',
+    'empty' => 'You have no bookings yet.',
     'phone' => 'Phone',
     'comment' => 'Comment (optional)',
     'send_message' => 'Send message',
