@@ -28,10 +28,10 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="meta-item d-flex align-items-center">
-                                    <i class="bi bi-currency-dollar fs-4 me-3"></i>
+                                    <i class="bi bi-cash fs-4 me-3"></i>
                                     <div>
                                         <small class="text-muted d-block">{{ __('services.price') }}</small>
-                                        <strong class="fs-5">{{$service->price}}</strong>
+                                        <strong class="fs-5">{{$service->price}} {{__('app.currency')}}</strong>
                                     </div>
                                 </div>
                             </div>

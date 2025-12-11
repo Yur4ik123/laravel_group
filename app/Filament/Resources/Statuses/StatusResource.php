@@ -21,6 +21,13 @@ class StatusResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'slug';
+    protected static ?string $breadcrumb = 'Статусы';
+
+    protected static ?string $navigationLabel = 'Статусы';
+
+    protected static ?string $modelLabel = 'статуса';
+
+    protected static ?string $pluralModelLabel = 'Статусы';
 
     public static function form(Schema $schema): Schema
     {

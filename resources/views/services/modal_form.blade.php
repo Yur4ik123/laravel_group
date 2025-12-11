@@ -32,7 +32,7 @@
                         <label for="message-text" class="col-form-label">{{ __('booking.comment') }}</label>
                         <textarea class="form-control" id="message-text" name="comment"></textarea>
                         <div class="modal-footer">
-                            <button type="submit" class="btn">{{ __('booking.send_message') }}</button>
+                            <button type="submit" class="btn text-white">{{ __('booking.send_message') }}</button>
                         </div>
                     </div>
                 </form>

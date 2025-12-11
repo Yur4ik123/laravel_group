@@ -18,7 +18,7 @@ class SlotResource extends Resource
 {
     protected static ?string $breadcrumb = 'слоты';
 
-    protected static ?string $navigationLabel = 'Slots';
+    protected static ?string $navigationLabel = 'Временные слоты';
 
     protected static ?string $modelLabel = 'слота';
 
@@ -26,7 +26,7 @@ class SlotResource extends Resource
 
     protected static ?string $model = Slot::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Clock;
 
     protected static ?string $recordTitleAttribute = 'Slot';
 

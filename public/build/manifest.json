@@ -7,12 +7,8 @@
     "file": "assets/bootstrap-icons-mSm7cUeB.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
-  "public/images/home-face.jpg": {
-    "file": "assets/home-face-BEx5V0PT.jpg",
-    "src": "public/images/home-face.jpg"
-  },
   "resources/css/app.scss": {
-    "file": "assets/app-DFa-S57g.css",
+    "file": "assets/app-DgeYBjjx.css",
     "src": "resources/css/app.scss",
     "isEntry": true
   },

@@ -22,10 +22,8 @@ class ServiceForm
                 TranslatableFields::make([
                     TextInput::make('name')
                         ->required(),
-                ]),
-                TranslatableFields::make([
-                    Textarea::make('description')
-                        ->required(),
+                        Textarea::make('description')
+                            ->required(),
                 ]),
                 FileUpload::make('images')
                     ->disk('public')
@@ -42,7 +40,7 @@ class ServiceForm
                     ->required()
                     ->numeric()
                     ->default(0.0)
-                    ->prefix('$'),
+                    ->prefix('₴'),
             ]);
     }
 }

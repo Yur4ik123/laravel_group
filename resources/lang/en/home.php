@@ -9,7 +9,7 @@ return [
     // About section
     'about_title' => 'About me',
     'about_subtitle' => 'beautiful and unique',
-    'about_text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam autem cum cupiditate debitis dignissimos dolor dolores ea earum eveniet, explicabo facere facilis hic illum impedit incidunt iste molestias necessitatibus nobis non numquam pariatur possimus quo, ratione, recusandae repellat reprehenderit repudiandae saepe sapiente sint tempore ullam vel veniam voluptates voluptatibus.',
+    'about_text' => 'We are a modern beauty salon where every client receives an individual approach and professional care. Our team of experienced masters offers a wide range of services for women and men: from haircuts and coloring to manicures, pedicures, and cosmetic procedures. We use only quality materials and modern techniques to make you look and feel great. Our goal is to highlight your natural beauty and create a cozy atmosphere where you can relax and enjoy the transformation process.',
 
     // Services section
     'services_subtitle' => 'Smooth & silky',
