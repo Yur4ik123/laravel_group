@@ -13,4 +13,5 @@ return [
     'confirm_password' => 'Confirm Password',
     'back_to_profile' => 'Back to Profile',
     'my_bookings' => 'My Bookings',
+    'logout' => 'Logout'
 ];

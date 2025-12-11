@@ -48,7 +48,7 @@
 
             <hr style="margin: 30px 0; border-color: #e0e0e0;">
 
-            <div style="display: flex; justify-content: center; gap: 20px; font-weight: 500;">
+            <div style="display: flex; justify-content: center; gap: 15px; font-weight: 500;">
                 <a href="{{ route('profile.password') }}" style="color: var(--color-green); text-decoration: none;">
                     {{ __('profile.change_password') }}
                 </a>
@@ -56,6 +56,12 @@
                 <a href="{{ route('profile.bookings') }}" style="color: var(--color-green); text-decoration: none;">
                     {{ __('profile.my_bookings') }}
                 </a>
+                |
+                <form method="post" action="{{route('logout')}}" style="width: fit-content;">
+                <button type="submit" style="color: var(--color-green); text-decoration: none; display: inline-flex">
+                    {{__('profile.logout')}}
+                </button>
+                </form>
             </div>
         </div>
     </div>

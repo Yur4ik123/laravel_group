@@ -13,4 +13,5 @@ return [
     'confirm_password' => 'Підтвердіть пароль',
     'back_to_profile' => 'Назад до профілю',
     'my_bookings' => 'Мої бронювання',
+    'logout' => 'Вийти'
 ];
