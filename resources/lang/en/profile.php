@@ -2,16 +2,15 @@
 
 return [
     'title' => 'Profile',
-    'name' => 'Name',
-    'surname' => 'Surname',
+    'name' => 'First Name',
+    'surname' => 'Last Name',
     'email' => 'Email',
     'phone' => 'Phone',
     'save' => 'Save',
-
-    'change_password' => 'Change password',
-    'my_bookings' => 'My bookings',
-
-    'bookings_title' => 'My bookings',
-    'no_bookings' => 'You have no bookings yet.',
-    'back_to_profile' => 'Back to profile',
+    'change_password' => 'Change Password',
+    'current_password' => 'Current Password',
+    'new_password' => 'New Password',
+    'confirm_password' => 'Confirm Password',
+    'back_to_profile' => 'Back to Profile',
+    'my_bookings' => 'My Bookings',
 ];

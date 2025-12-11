@@ -7,11 +7,10 @@ return [
     'email' => 'Email',
     'phone' => 'Телефон',
     'save' => 'Сохранить',
-
     'change_password' => 'Сменить пароль',
-    'my_bookings' => 'Мои бронирования',
-
-    'bookings_title' => 'Мои бронирования',
-    'no_bookings' => 'Пока бронирований нет.',
+    'current_password' => 'Текущий пароль',
+    'new_password' => 'Новый пароль',
+    'confirm_password' => 'Подтвердите пароль',
     'back_to_profile' => 'Назад в профиль',
+    'my_bookings' => 'Мои бронирования',
 ];

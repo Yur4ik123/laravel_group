@@ -2,16 +2,15 @@
 
 return [
     'title' => 'Особистий кабінет',
-    'name' => "Ім'я",
+    'name' => 'Імʼя',
     'surname' => 'Прізвище',
     'email' => 'Email',
     'phone' => 'Телефон',
     'save' => 'Зберегти',
-
     'change_password' => 'Змінити пароль',
+    'current_password' => 'Поточний пароль',
+    'new_password' => 'Новий пароль',
+    'confirm_password' => 'Підтвердіть пароль',
+    'back_to_profile' => 'Назад до профілю',
     'my_bookings' => 'Мої бронювання',
-
-    'bookings_title' => 'Мої бронювання',
-    'no_bookings' => 'Бронювань поки немає.',
-    'back_to_profile' => 'Назад у профіль',
 ];
